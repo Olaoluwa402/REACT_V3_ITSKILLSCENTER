@@ -4,19 +4,21 @@ import Main from "./components/Main/Main";
 import Input from "./components/useStateHook/useState";
 
 import "./App.css";
+import Form from "./components/Form/Form";
 
 function App() {
   return (
-    <div className="App">
-      {/* banner componet */}
-      <Banner />
-      {/* NNavigation Liks */}
-      <NavLinks />
-      <Input />
+    <Form />
+    // <div className="App">
+    //   {/* banner componet */}
+    //   <Banner />
+    //   {/* NNavigation Liks */}
+    //   <NavLinks />
+    //   <Input />
 
-      {/* Main */}
-      <Main />
-    </div>
+    //   {/* Main */}
+    //   <Main />
+    // </div>
   );
 }
 

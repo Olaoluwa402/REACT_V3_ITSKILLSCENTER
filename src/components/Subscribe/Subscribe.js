@@ -13,9 +13,6 @@ const Subscribe = () => {
   function emailHandler(e) {
     setEmail(e.target.value);
   }
-  function emailHandler(e) {
-    setEmail(e.target.value);
-  }
 
   function submitHandler(e) {
     console.log({ name, email });

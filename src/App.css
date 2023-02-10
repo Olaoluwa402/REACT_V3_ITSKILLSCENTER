@@ -1,3 +1,7 @@
+:root {
+  --primary: blue;
+}
+
 .App {
   background-color: blanchedalmond;
 }
