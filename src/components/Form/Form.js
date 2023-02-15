@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Input from "./Input/Input";
 import Spinner from "../Spinner/Spinner";
-
+import { toast } from "react-toastify";
 import "./Form.css";
 
 const Form = () => {
@@ -27,6 +27,8 @@ const Form = () => {
       setPassword("");
       setLoading(false);
     }, 4000);
+
+    toast.success("Successfull");
 
     console.log({ username, password });
   }

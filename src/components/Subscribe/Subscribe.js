@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Title from "../Title/Title";
 import InputComponent from "../Input/Input";
+import {v4 as uuidv4 } from "uuid";
+
 import "./Subscribe.css";
 
 const Subscribe = () => {
@@ -13,6 +15,20 @@ const Subscribe = () => {
   function emailHandler(e) {
     setEmail(e.target.value);
   }
+
+  const data = [{name:'john'}, {name:'dammy'}]
+
+  const res = data.map((user)=> {
+    const newUser = {
+      id:uuidv4(),
+      ...user
+    }
+    return newUser
+  })
+
+
+  console.log(res,'res')
+
 
   function submitHandler(e) {
     console.log({ name, email });
