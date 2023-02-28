@@ -3,6 +3,7 @@ import Home from "./screens/Home";
 import Register from "./screens/Register";
 import NotFound from "./screens/NotFound";
 import MultiDataForm from "./components/Form/MultiDataForm";
+import Tasks from "./screens/Tasks";
 import Layout from "./components/Layout/Layout/Layout";
 
 const Router = () => {
@@ -27,7 +28,14 @@ const Router = () => {
         />
         <Route path="/not-found" element={<NotFound />} />
 
-        <Route path="/tasks" element={<MultiDataForm />} />
+        <Route
+          path="/tasks"
+          element={
+            <Layout>
+              <Tasks />
+            </Layout>
+          }
+        />
         {/* <Route path="/tasks/:id" element={<NotFound />} />
         <Route path="/tasks/:id/edit" element={<NotFound />} /> */}
 

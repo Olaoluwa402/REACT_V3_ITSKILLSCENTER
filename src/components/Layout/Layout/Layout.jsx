@@ -5,10 +5,10 @@ import SideBar from "../SideBar/SideBar";
 
 const Layout = ({ sideBarOpened, children }) => {
   return (
-    <div>
+    <div className="h-screen flex flex-col justify-between">
       <Navigation />
       {sideBarOpened && <SideBar />}
-      <main>{children}</main>
+      <main className="flex-1">{children}</main>
       <Footer />
     </div>
   );
