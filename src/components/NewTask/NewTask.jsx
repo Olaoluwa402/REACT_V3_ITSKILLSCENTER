@@ -46,6 +46,8 @@ const NewTask = ({ setOpenCreateTask }) => {
       setLoading(false);
 
       toast.success("Task created");
+
+      setOpenCreateTask(false);
     }, 3000);
   };
   return (

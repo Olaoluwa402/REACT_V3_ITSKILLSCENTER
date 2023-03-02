@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NewTask from "../components/NewTask/NewTask";
 import Modal from "../components/Modal/Modal";
+import TaskList from "../components/TaskList/TaskList";
 
 const Tasks = () => {
   const [openCreateTask, setOpenCreateTask] = useState(false);
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    getTasks();
+  }, [openCreateTask]);
+
+  console.log(tasks);
+  function getTasks() {
+    const tasks = localStorage.getItem("tasks");
+    const tasksJSON = JSON.parse(tasks);
+    console.log(tasksJSON, "tsas");
+    setTasks(tasksJSON);
+  }
 
   return (
     <div>
@@ -23,7 +37,9 @@ const Tasks = () => {
           </button>
         </div>
       </div>
-      {/* <TaskList /> */}
+
+      {/* tasks component */}
+      <TaskList tasks={tasks} />
     </div>
   );
 };
