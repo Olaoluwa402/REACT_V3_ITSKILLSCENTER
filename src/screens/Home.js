@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div>
       <>
-        <ConditionalRendering />
+        {/* <ConditionalRendering /> */}
         <Form />
       </>
     </div>

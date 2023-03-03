@@ -1,7 +1,7 @@
 import React from "react";
 import { FaTrashAlt, FaEdit, FaShareAlt } from "react-icons/fa";
 
-const TaskCard = ({ task }) => {
+const TaskCard = ({ task, setOpenUpdateTask, setUpdateId }) => {
   const truncate = (str, num) => {
     if (str.length > num) {
       str = str.substring(0, num) + "...";
@@ -19,7 +19,13 @@ const TaskCard = ({ task }) => {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-1">
           <FaTrashAlt className="cursor-pointer" />{" "}
-          <FaEdit className="cursor-pointer" />
+          <FaEdit
+            className="cursor-pointer"
+            onClick={() => {
+              setUpdateId(task.id);
+              setOpenUpdateTask(true);
+            }}
+          />
         </div>
         <FaShareAlt className="cursor-pointer" />
       </div>

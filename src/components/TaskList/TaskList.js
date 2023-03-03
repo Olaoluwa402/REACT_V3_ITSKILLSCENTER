@@ -1,11 +1,18 @@
 import React from "react";
 import TaskCard from "../TaskCard/TaskCard";
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, setOpenUpdateTask, setUpdateId }) => {
   return (
     <div className="flex items-center flex-wrap">
       {tasks && tasks.length > 0 ? (
-        tasks.map((task) => <TaskCard key={task.id} task={task} />)
+        tasks.map((task) => (
+          <TaskCard
+            key={task.id}
+            task={task}
+            setUpdateId={setUpdateId}
+            setOpenUpdateTask={setOpenUpdateTask}
+          />
+        ))
       ) : (
         <div className="w-full h-screen flex justify-center items-center">
           {" "}
