@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import NewTask from "../components/NewTask/NewTask";
-import UpdateTask from "../components/UpdateTask/UpdateTask";
-import Modal from "../components/Modal/Modal";
-import TaskList from "../components/TaskList/TaskList";
+import NewTask from "../../components/NewTask/NewTask";
+import UpdateTask from "../../components/UpdateTask/UpdateTask";
+import Modal from "../../components/Modal/Modal";
+import TaskList from "../../components/TaskList/TaskList";
 
 const Tasks = () => {
   const [openCreateTask, setOpenCreateTask] = useState(false);

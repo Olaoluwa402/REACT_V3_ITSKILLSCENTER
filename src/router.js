@@ -4,11 +4,14 @@ import Register from "./screens/Register";
 import NotFound from "./screens/NotFound";
 import MultiDataForm from "./components/Form/MultiDataForm";
 import Tasks from "./screens/Tasks";
+import Task from "./screens/Task";
 import Layout from "./components/Layout/Layout/Layout";
+import ReactWhatsapp from "react-whatsapp";
 
 const Router = () => {
   return (
     <div>
+      <ReactWhatsapp number="2347060507450" message="Hello World!!!" />
       <Routes>
         <Route
           path="/"
@@ -36,8 +39,15 @@ const Router = () => {
             </Layout>
           }
         />
-        {/* <Route path="/tasks/:id" element={<NotFound />} />
-        <Route path="/tasks/:id/edit" element={<NotFound />} /> */}
+        <Route
+          path="/tasks/:id"
+          element={
+            <Layout>
+              <Task />
+            </Layout>
+          }
+        />
+        {/* <Route path="/tasks/:id/edit" element={<NotFound />} /> */}
 
         {/* <Route path="/posts" element={<NotFound />} />
         <Route path="/posts/:id" element={<NotFound />} />
