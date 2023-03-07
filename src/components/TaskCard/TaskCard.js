@@ -1,37 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaTrashAlt, FaEdit, FaShareAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { RWebShare } from "react-web-share";
+import GlobalContext from "../../context";
 
-const TaskCard = ({ task, setOpenUpdateTask, setUpdateId, getTasks }) => {
-  const truncate = (str, num) => {
-    if (str.length > num) {
-      str = str.substring(0, num) + "...";
-      return str;
-    }
-    return str;
-  };
-
-  function removeTask(id) {
-    const tasks = JSON.parse(localStorage.getItem("tasks"));
-    const copy = [...tasks];
-
-    ///get item by id
-    const newTasks = copy.filter((item) => item.id !== id);
-    localStorage.setItem("tasks", JSON.stringify(newTasks));
-  }
-
-  const removeTaskHandler = (id) => {
-    console.log(id);
-    const decision = window.confirm(
-      "Are you sure you want to delete ths items?"
-    );
-
-    if (decision) {
-      removeTask(id);
-      getTasks();
-    }
-  };
+const TaskCard = ({ task }) => {
+  const { truncate, setOpenUpdateTask, removeTaskHandler, setUpdateId } =
+    useContext(GlobalContext);
 
   return (
     <div className="w-[250px] h-[300px] flex flex-col drop-shadow-md rounded-md bg-slate-400 m-4 p-2">

@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import TaskCard from "../TaskCard/TaskCard";
+import GlobalContext from "../../context";
 
-const TaskList = ({ tasks, setOpenUpdateTask, setUpdateId, getTasks }) => {
+const TaskList = ({ tasks }) => {
+  const { setOpenUpdateTask, setUpdateId, getTasks } =
+    useContext(GlobalContext);
+
   return (
     <div className="flex items-center flex-wrap">
       {tasks && tasks.length > 0 ? (

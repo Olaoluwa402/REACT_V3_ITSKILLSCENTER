@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { IoMdCloseCircle } from "react-icons/io";
 import Spinner from "../Spinner/Spinner";
-import { v4 as uuidv4 } from "uuid";
 import { toast } from "react-toastify";
+import GlobalContext from "../../context";
 
-const NewTask = ({ setOpenUpdateTask, id }) => {
+const NewTask = () => {
+  const { setOpenUpdateTask, id } = useContext(GlobalContext);
   const [loading, setLoading] = useState(false);
   const [task, setTask] = useState(null);
   const [state, setState] = useState({

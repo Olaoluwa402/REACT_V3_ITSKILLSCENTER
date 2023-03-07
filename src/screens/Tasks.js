@@ -1,40 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import NewTask from "../components/NewTask/NewTask";
 import UpdateTask from "../components/UpdateTask/UpdateTask";
 import Modal from "../components/Modal/Modal";
 import TaskList from "../components/TaskList/TaskList";
+import GlobalContext from "../context";
 
 const Tasks = () => {
-  const [openCreateTask, setOpenCreateTask] = useState(false);
-  const [openUpdateTask, setOpenUpdateTask] = useState(false);
-  const [updateId, setUpdateId] = useState("");
-  const [tasks, setTasks] = useState([]);
-
-  // console.log(updateId, "updateId");
-  useEffect(() => {
-    getTasks();
-  }, [openCreateTask, openUpdateTask]);
-
-  function getTasks() {
-    const tasks = localStorage.getItem("tasks");
-    const tasksJSON = JSON.parse(tasks);
-    console.log(tasksJSON, "tsas");
-    setTasks(tasksJSON);
-  }
+  const { tasks, openCreateTask, openUpdateTask, setOpenCreateTask } =
+    useContext(GlobalContext);
 
   return (
     <div>
       {/* create task modal */}
       {openCreateTask && (
         <Modal>
-          <NewTask setOpenCreateTask={setOpenCreateTask} />
+          <NewTask />
         </Modal>
       )}
 
       {/* update task */}
       {openUpdateTask && (
         <Modal>
-          <UpdateTask setOpenUpdateTask={setOpenUpdateTask} id={updateId} />
+          <UpdateTask />
         </Modal>
       )}
       {/* tab section */}
@@ -50,12 +37,7 @@ const Tasks = () => {
       </div>
 
       {/* tasks component */}
-      <TaskList
-        tasks={tasks}
-        setOpenUpdateTask={setOpenUpdateTask}
-        setUpdateId={setUpdateId}
-        getTasks={getTasks}
-      />
+      <TaskList tasks={tasks} />
     </div>
   );
 };
