@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Input from "./Input/Input";
 import Spinner from "../Spinner/Spinner";
 import { toast } from "react-toastify";
 import "./Form.css";
 
 const Form = () => {
+  const inputRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   function userNameHandler(e) {
     setUserName(e.target.value);
@@ -44,6 +49,7 @@ const Form = () => {
               placeholder: "username",
               value: username,
               onChange: userNameHandler,
+              ref: inputRef,
             }}
           />
         </div>
