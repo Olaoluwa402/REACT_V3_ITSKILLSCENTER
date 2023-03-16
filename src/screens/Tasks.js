@@ -4,6 +4,8 @@ import UpdateTask from "../components/UpdateTask/UpdateTask";
 import Modal from "../components/Modal/Modal";
 import TaskList from "../components/TaskList/TaskList";
 import GlobalContext from "../context";
+import DocTitleTwo from "../components/CustomHooks/DocTitleTwo";
+import CounterTwo from "../components/CustomHooks/counterTwo";
 
 const Tasks = () => {
   const { tasks, openCreateTask, openUpdateTask, setOpenCreateTask } =
@@ -35,6 +37,8 @@ const Tasks = () => {
           </button>
         </div>
       </div>
+      <CounterTwo />
+      <DocTitleTwo />
 
       {/* tasks component */}
       <TaskList tasks={tasks} />
