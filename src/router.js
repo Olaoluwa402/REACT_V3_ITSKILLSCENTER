@@ -7,12 +7,24 @@ import Tasks from "./screens/Tasks";
 import Task from "./screens/Task";
 import Layout from "./components/Layout/Layout/Layout";
 import ReactWhatsapp from "react-whatsapp";
+import Settings from "./screens/Settings";
+import Analytics from "./screens/Analytics";
+import Default from "./screens/Default";
+import Messages from "./screens/Messages";
+import DashboardLayout from "./components/DashboardLayout/Layout/Layout.jsx";
 
 const Router = () => {
   return (
     <div>
       <ReactWhatsapp number="2347060507450" message="Hello World!!!" />
       <Routes>
+        {/* dashboard route */}
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<Default />} />
+          <Route path="messages" element={<Messages />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="analytics" element={<Analytics />} />
+        </Route>
         <Route
           path="/"
           element={
